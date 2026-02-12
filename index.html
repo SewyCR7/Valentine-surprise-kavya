@@ -2,19 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You 🌸</title>
+
     <style>
         body {
             margin: 0;
             padding: 0;
             background: linear-gradient(to right, #ff9a9e, #fad0c4);
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
             color: #fff;
         }
 
         .container {
             padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
         }
 
         h1 {
@@ -28,17 +32,17 @@
             line-height: 1.6;
         }
 
+        /* Responsive Gallery */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(2, 250px);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
-            justify-content: center;
             margin: 40px 0;
         }
 
         .gallery img {
-            width: 250px;
-            height: 250px;
+            width: 100%;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
             border-radius: 15px;
             transition: transform 0.4s ease;
@@ -57,6 +61,7 @@
             border: none;
             border-radius: 20px;
             cursor: pointer;
+            margin: 10px;
         }
 
         button:hover {
@@ -68,60 +73,67 @@
             margin-top: 20px;
             font-size: 18px;
         }
+
+        /* Smaller font sizes on phones */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 26px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
+
 <body>
-     <button id="musicBtn" onclick="playMusic()">Click Here 🎶</button>
+
+<button id="musicBtn" onclick="playMusic()">Click Here 🎶</button>
 
 <audio id="bgMusic" loop>
-    <source src="song.mp3" >
+    <source src="song.mp3">
 </audio>
- 
-    <div class="container">
-        <h1>Happy Valentine's Day 🌷</h1>
 
-        <p>
-            This one's for the lady of my life.
-            My bestest friend and my safe spot. I love you so much.        </p>
+<div class="container">
+    <h1>Happy Valentine's Day 🌷</h1>
 
-        <!-- Image Gallery -->
-        <div class="gallery">
-            <img src="image1.png">
-            <img src="image2.jpeg">
-            <img src="image3.jpeg">
-            <img src="image4.jpeg">
-        </div>
+    <p>
+        This one's for the lady of my life.
+        My bestest friend and my safe spot. I love you so much.
+    </p>
 
-        <button onclick="showMessage()">Click This 👀</button>
-
-        <div class="hidden-message" id="message">
-            <p>
-                I don’t need to define this.  
-                I just know I appreciate you more than I say. 🌸
-                Thank you for choosing me. I'll never let you down. I'll never give up on you.
-                You deserve all the love this world can offer you. The prettiest woman ever (touchwood)!
-                <align = "center"> I love you so much and I'll never leave you. </align>
-            
-            </p>
-        </div>
+    <div class="gallery">
+        <img src="image1.png">
+        <img src="image2.jpeg">
+        <img src="image3.jpeg">
+        <img src="image4.jpeg">
     </div>
 
-    <script>
-   function playMusic() {
+    <button onclick="showMessage()">Click This 👀</button>
+
+    <div class="hidden-message" id="message">
+        <p>
+            I don’t need to define this.  
+            I just know I appreciate you more than I say. 🌸  
+            Thank you for choosing me. I'll never let you down. I'll never give up on you.  
+            You deserve all the love this world can offer you. The prettiest woman ever (touchwood)!  
+            I love you so much and I'll never leave you.
+        </p>
+    </div>
+</div>
+
+<script>
+function playMusic() {
     var music = document.getElementById("bgMusic");
     music.play();
     document.getElementById("musicBtn").style.display = "none";
 }
 
-        function showMessage() {
-            document.getElementById("message").style.display = "block";
-        }
-    </script>
-
-<audio autoplay loop>
-    <source src="song.mp3">
-</audio>
+function showMessage() {
+    document.getElementById("message").style.display = "block";
+}
+</script>
 
 </body>
 </html>
-
