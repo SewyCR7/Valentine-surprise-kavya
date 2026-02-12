@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For You 🌸</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #fff;
+        }
+
+        .container {
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 38px;
+        }
+
+        p {
+            font-size: 18px;
+            max-width: 650px;
+            margin: 15px auto;
+            line-height: 1.6;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 250px);
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #ff4e50;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ffe3e3;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+     <button id="musicBtn" onclick="playMusic()">Click Here 🎶</button>
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" >
+</audio>
+ 
+    <div class="container">
+        <h1>Happy Valentine's Day 🌷</h1>
+
+        <p>
+            This one's for the lady of my life.
+            My bestest friend and my safe spot. I love you so much.        </p>
+
+        <!-- Image Gallery -->
+        <div class="gallery">
+            <img src="image1.png">
+            <img src="image2.jpeg">
+            <img src="image3.jpeg">
+            <img src="image4.jpeg">
+        </div>
+
+        <button onclick="showMessage()">Click This 👀</button>
+
+        <div class="hidden-message" id="message">
+            <p>
+                I don’t need to define this.  
+                I just know I appreciate you more than I say. 🌸
+            </p>
+        </div>
+    </div>
+
+    <script>
+   function playMusic() {
+    var music = document.getElementById("bgMusic");
+    music.play();
+    document.getElementById("musicBtn").style.display = "none";
+}
+
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+    </script>
+
+<audio autoplay loop>
+    <source src="song.mp3">
+</audio>
+
+</body>
+</html>
